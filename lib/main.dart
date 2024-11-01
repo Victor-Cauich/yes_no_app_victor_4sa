@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:yes_no_app_victor_4sa/config/theme/app_theme.dart';
-import 'package:yes_no_app_victor_4sa/presentation/chat/chat_screen.dart';
+import 'package:yes_no_app_victor_4sa/presentation/screens/chat/chat_screen.dart';
 
 void main() => runApp(const Myapp());
 
