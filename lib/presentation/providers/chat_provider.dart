@@ -5,7 +5,7 @@ class ChatProvider extends ChangeNotifier{
 
   List<Message> messageList = [
     Message(text: 'Hola Ader', fromWho: FromWho.me),
-    Message(text: 'Lloras porque reprobaste ttopicos?', fromWho: FromWho.me)
+    Message(text: 'Lloras porque reprobaste topicos?', fromWho: FromWho.me)
   ];
   // Controlador para manejar la posicion del scroll
   final ScrollController chatScrollController = ScrollController();
@@ -26,8 +26,9 @@ class ChatProvider extends ChangeNotifier{
     //Mover el scroll al ultimo mensaje
 
     Future<void> moveScrollToBottom() async{
-      // Un pequeño atraso en la animacion para garantizar que siempre 
+      if (chatScrollController.hasClients) {
       // se vera aun cuando se envien mensajes cortos y rapidos
+      // Un pequeño atraso en la animacion para garantizar que siempre 
       await Future.delayed(const Duration(seconds: 1));
       chatScrollController.animateTo(
       // maxScrollExtent determina a lo maximo que el scroll puede dar
@@ -36,5 +37,6 @@ class ChatProvider extends ChangeNotifier{
         duration: const Duration(milliseconds: 300),
       // "Rebote" al final de la animacion
          curve: Curves.easeOut);
+      }
   }
 }
