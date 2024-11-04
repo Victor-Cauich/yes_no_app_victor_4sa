@@ -13,10 +13,14 @@ class ChatProvider extends ChangeNotifier{
 
   //Enviar un mensaje
   Future<void> sendMessage(String text) async {
+    // verifica si el mensaje esta vacio
+    if (text.trim().isEmpty)return;
     //El mensaje siempre va a ser "me" porque yo lo envio
     final newMessage = Message(text: text, fromWho: FromWho.me);
     //Agrega un elemento a la Lista "messageist"
     messageList.add(newMessage);
+    // Imprime en la consola la cantidad de mensajes en la lista
+    print('Cantidad de mensajes en la lista: ${messageList.length}');
     // Notifica si algo del provider cambio para que se guarde en el estado
     notifyListeners();
     // mueve el scroll
