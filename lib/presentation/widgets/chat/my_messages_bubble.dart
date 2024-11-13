@@ -19,20 +19,37 @@ class MyMessageBubble extends StatelessWidget{
         Container(
            decoration: BoxDecoration(
             color: colors.primary,
-            borderRadius: BorderRadius.circular(20)
+            borderRadius: BorderRadius.circular(20),
            ),
            child: Padding(
              padding: const EdgeInsets.all(5),
-             child: Text(
-              message.text,
-              style: const TextStyle( color: Colors.white),
-             ),
-           ),
+             child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                // Texto de la burbuja
+                Flexible(
+                  child: Text(
+                    message.text,
+                    style: const TextStyle(color: Colors.white),
+                  ),
+                ),
+
+                const SizedBox(width: 5),
+
+                // Icono de las dos palomitas dentro de la burbuja
+                const Icon(
+                  Icons.done_all,
+                  color: Colors.blue,
+                  size: 16,
+                ),
+              ],
+            ),
+          ),
         ),
 
         const SizedBox(height: 5),
 
-        // Mostrar la hora debajo del mensaje
+        // Mostrar la hora debajo de la burbuja
         Text(
           timeSent,
           style: TextStyle(color: colors.onBackground.withOpacity(0.6), fontSize: 12),

@@ -20,7 +20,18 @@ class ChatScreen extends StatelessWidget {
             backgroundImage: NetworkImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9JAKy_T0XT8vx6p4sIjzmaGqHrdIK9GVR0Q&s"),
           ),
         ),
-        title: const Text("Mi amor "),
+
+
+        title: const Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text("Mi amor"),
+            Text("En linea",
+              style: TextStyle(fontSize: 12, color: Colors.black),
+            )
+          ]
+        )
+
       ),
       body: _ChatView(),
     );
