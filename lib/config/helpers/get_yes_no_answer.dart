@@ -19,6 +19,6 @@ class GetYesNoAnswer{
     return yesNoModel.toMessageEntity();
     
     // Generar un error
-    throw UnimplementedError();
+    // throw UnimplementedError();
   }
 }

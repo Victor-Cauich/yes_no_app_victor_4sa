@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:yes_no_app_victor_4sa/domain/entities/message.dart';
-import 'package:yes_no_app_victor_4sa/main.dart';
+// import 'package:yes_no_app_victor_4sa/main.dart';
 import 'package:yes_no_app_victor_4sa/presentation/providers/chat_provider.dart';
 import 'package:yes_no_app_victor_4sa/presentation/widgets/chat/her_messages._bubble.dart';
 import 'package:yes_no_app_victor_4sa/presentation/widgets/chat/my_messages_bubble.dart';
@@ -40,6 +40,7 @@ class _ChatView extends StatelessWidget {
 
             Expanded(
               child: ListView.builder(
+                controller: chatProvider.chatScrollController,
                 itemCount: chatProvider.messageList.length,
                 itemBuilder: (context, index){
                   // Instancia de message que sabra de quien es el mensaje

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import "package:yes_no_app_victor_4sa/domain/entities/message.dart";
 
 class HerMessageBubble extends StatelessWidget{
@@ -9,6 +10,7 @@ class HerMessageBubble extends StatelessWidget{
   Widget build(BuildContext context) {
 
     final colors = Theme.of(context).colorScheme;
+    final timeSent = DateFormat('hh:mm a').format(message.timestamp); // Formatea la hora
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start ,
@@ -30,6 +32,11 @@ class HerMessageBubble extends StatelessWidget{
 
         _ImageBubble(
           imageUrl: message.imageUrl!
+        ),
+
+         Text(
+          timeSent,
+          style: TextStyle(color: colors.onBackground.withOpacity(0.6), fontSize: 12),
         ),
 
         const SizedBox( height: 10),
